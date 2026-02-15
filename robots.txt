@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bstudio-vocal.github.io/sitemap.xml
