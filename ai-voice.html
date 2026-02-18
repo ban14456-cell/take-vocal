@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKE VOCAL AI | AI 보이스 원본 제작 - 프로급 스튜디오 녹음으로 최고 품질 AI 모델</title>
+    <meta name="description" content="AI 보이스 모델 학습용 클린 보컬 녹음 전문. Neumann TLM 103, BAE 1073 프리앰프, UA Apollo로 24bit/48kHz 고해상도 녹음. ElevenLabs, Kits.AI, RVC 최적화. 테이크보컬.">
+    <meta name="keywords" content="AI보이스녹음, AI보컬녹음, 보이스클론, AI커버녹음, RVC학습데이터, 클린보컬녹음, 테이크보컬, TAKEVOCAL, AI성우, AI가수">
+    <meta name="author" content="TAKE VOCAL">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TAKE VOCAL AI | AI 보이스 원본 제작">
+    <meta property="og:description" content="AI가 학습할 원본의 품질이 결과를 결정합니다. 프로급 스튜디오에서 클린 보컬 데이터를 녹음하세요.">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fdf8ef', 100: '#f9edda', 200: '#f2d8b0', 300: '#e9bc7d',
+                            400: '#e0a050', 500: '#d4852e', 600: '#c26d23', 700: '#a1531f',
+                            800: '#834320', 900: '#6b381e',
+                        },
+                        studio: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#222230' }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        display: ['Montserrat', 'Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(212,133,46,0.3);} 50%{box-shadow:0 0 40px rgba(212,133,46,0.6);} }
+        @keyframes shimmer { 0%{background-position:-200% center;} 100%{background-position:200% center;} }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        .glow-border { animation: glow 3s ease-in-out infinite; }
+        .shimmer-text {
+            background: linear-gradient(90deg, #d4852e, #f2d8b0, #d4852e);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        .reveal { opacity:0; transform:translateY(20px); transition:all 0.6s ease-out; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .gradient-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(212,133,46,0.4),transparent); }
+        .header-scrolled { background:rgba(10,10,15,0.95)!important; backdrop-filter:blur(20px); box-shadow:0 2px 20px rgba(0,0,0,0.3); }
+        .pulse-cta { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+        @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.8;} }
+        .equip-card { transition:all 0.3s ease; border:1px solid rgba(212,133,46,0.1); }
+        .equip-card:hover { border-color:rgba(212,133,46,0.4); transform:translateY(-4px); box-shadow:0 8px 30px rgba(212,133,46,0.15); }
+        ::-webkit-scrollbar { width:8px; }
+        ::-webkit-scrollbar-track { background:#0a0a0f; }
+        ::-webkit-scrollbar-thumb { background:#d4852e; border-radius:4px; }
+    </style>
+</head>
+<body class="bg-studio-900 text-gray-200 font-sans antialiased">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-display font-bold text-2xl text-white tracking-tight">TAKE<span class="text-gold-500"> </span>VOCAL</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="index.html" class="hover:text-gold-400 transition-colors">보컬 레슨</a>
+                <a href="index.html#equipment" class="hover:text-gold-400 transition-colors">장비</a>
+                <a href="index.html#trainer" class="hover:text-gold-400 transition-colors">트레이너</a>
+                <a href="#" class="text-gold-400 font-semibold">AI 보이스</a>
+                <a href="index.html#reviews" class="hover:text-gold-400 transition-colors">후기</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener"
+                   class="hidden sm:inline-flex bg-gold-500 hover:bg-gold-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-105">
+                    상담 신청
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden text-white p-2" aria-label="메뉴 열기">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="mobileMenuOverlay"></div>
+        <div class="absolute right-0 top-0 h-full w-72 bg-studio-800 p-8 flex flex-col gap-6 shadow-2xl">
+            <button id="mobileMenuClose" class="self-end text-gray-400 hover:text-white p-2" aria-label="메뉴 닫기">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <nav class="flex flex-col gap-5 text-lg font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-gold-400 transition-colors mobile-nav-link">보컬 레슨</a>
+                <a href="index.html#equipment" class="text-gray-300 hover:text-gold-400 transition-colors mobile-nav-link">장비</a>
+                <a href="#" class="text-gold-400 font-semibold mobile-nav-link">AI 보이스</a>
+                <a href="index.html#reviews" class="text-gray-300 hover:text-gold-400 transition-colors mobile-nav-link">후기</a>
+            </nav>
+            <div class="mt-auto flex flex-col gap-3">
+                <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener"
+                   class="bg-gold-500 text-white py-3 rounded-xl text-center font-bold">상담 신청</a>
+                <a href="tel:010-2340-3794" class="bg-studio-700 text-gray-300 py-3 rounded-xl text-center font-medium">010-2340-3794</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-studio-900">
+        <div class="absolute inset-0 bg-gradient-to-b from-studio-900 via-studio-800 to-studio-900"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center pt-24 pb-20">
+            <p class="animate-fade-in-up text-gold-400 font-display text-sm md:text-base tracking-[0.2em] mb-6">
+                TAKE VOCAL AI
+            </p>
+            <h1 class="animate-fade-in-up animate-delay-1 text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
+                AI 보이스의 퀄리티는<br>
+                <span class="shimmer-text">원본 녹음</span>에서 결정됩니다
+            </h1>
+            <p class="animate-fade-in-up animate-delay-2 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                스마트폰 녹음으로 만든 AI 모델, 만족하시나요?<br>
+                <strong class="text-gold-400">프로급 스튜디오 녹음</strong> 한 번이면 차원이 달라집니다.
+            </p>
+            <div class="animate-fade-in-up animate-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener"
+                   class="glow-border bg-gold-500 hover:bg-gold-600 text-white px-8 py-4 rounded-full text-lg font-bold transition-all hover:scale-105 inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.83 1.88 5.32 4.72 6.73-.16.57-.58 2.07-.66 2.39-.11.4.15.39.31.28.13-.08 2.04-1.38 2.87-1.94.89.13 1.82.2 2.76.2 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg>
+                    AI 보이스 상담하기
+                </a>
+                <a href="index.html" class="border border-gray-600 hover:border-gold-500 text-gray-300 hover:text-white px-8 py-4 rounded-full text-lg font-medium transition-all">
+                    보컬 레슨 보기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== 문제 제기 ===== -->
+    <section class="py-20 bg-studio-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <p class="text-gold-400 font-display text-sm tracking-[0.2em] uppercase mb-3">The Problem</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+                    왜 AI 보컬 퀄리티가<br>기대만큼 안 나올까요?
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 reveal">
+                <div class="bg-studio-800 rounded-2xl p-6 border border-red-500/20">
+                    <div class="text-3xl mb-4">📱</div>
+                    <h3 class="text-lg font-bold text-white mb-2">스마트폰 녹음</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        압축 손실, 주파수 왜곡, 마이크 한계.<br>
+                        AI가 학습할수록 <strong class="text-red-400">결함이 증폭</strong>됩니다.
+                    </p>
+                </div>
+                <div class="bg-studio-800 rounded-2xl p-6 border border-red-500/20">
+                    <div class="text-3xl mb-4">🎙</div>
+                    <h3 class="text-lg font-bold text-white mb-2">USB 마이크 녹음</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        배경 노이즈, 룸 리버브, 불안정한 게인.<br>
+                        <strong class="text-red-400">깨끗해 보여도 AI는 다 잡아냅니다.</strong>
+                    </p>
+                </div>
+                <div class="bg-studio-800 rounded-2xl p-6 border border-red-500/20">
+                    <div class="text-3xl mb-4">🔊</div>
+                    <h3 class="text-lg font-bold text-white mb-2">부적절한 레벨</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        클리핑, 찌그러진 소리, 레벨 불균형.<br>
+                        <strong class="text-red-400">후보정으로 해결 불가능</strong>합니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 reveal">
+                <p class="text-xl text-white font-semibold">
+                    AI는 입력 데이터의 품질을 넘을 수 없습니다.<br>
+                    <span class="text-gold-400">출발점이 되는 '완벽한 원본'</span>을 보장합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== 장비 ===== -->
+    <section class="py-20 bg-studio-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <p class="text-gold-400 font-display text-sm tracking-[0.2em] uppercase mb-3">Signal Chain</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                    상업 앨범급 시그널 체인
+                </h2>
+                <p class="text-gray-400">AI가 학습하기 좋은 클린 소스를 만드는 장비입니다.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="equip-card bg-studio-800 rounded-2xl p-6 text-center reveal">
+                    <div class="text-4xl mb-4">🎤</div>
+                    <p class="text-gold-400 text-xs tracking-wider uppercase mb-2">Microphone</p>
+                    <h3 class="text-lg font-bold text-white mb-2">Neumann<br>TLM 103</h3>
+                    <p class="text-gray-500 text-xs leading-relaxed">
+                        노이즈 플로어가 극도로 낮은 전문가용 콘덴서 마이크.<br>
+                        AI 학습에 최적인 깨끗한 소스를 만듭니다.
+                    </p>
+                </div>
+                <div class="equip-card bg-studio-800 rounded-2xl p-6 text-center reveal">
+                    <div class="text-4xl mb-4">🔥</div>
+                    <p class="text-gold-400 text-xs tracking-wider uppercase mb-2">Preamp</p>
+                    <h3 class="text-lg font-bold text-white mb-2">BAE 1073<br>DMP</h3>
+                    <p class="text-gray-500 text-xs leading-relaxed">
+                        전설적인 Neve 1073 회로의 정밀 복각.<br>
+                        아날로그 밀도감으로 디지털 평면함을 보완합니다.
+                    </p>
+                </div>
+                <div class="equip-card bg-studio-800 rounded-2xl p-6 text-center reveal">
+                    <div class="text-4xl mb-4">🎛</div>
+                    <p class="text-gold-400 text-xs tracking-wider uppercase mb-2">Interface</p>
+                    <h3 class="text-lg font-bold text-white mb-2">UA Apollo<br>Twin Duo X</h3>
+                    <p class="text-gray-500 text-xs leading-relaxed">
+                        클린한 A/D 컨버전. Logic Pro 최적화.<br>
+                        24bit/48kHz 고해상도 녹음을 보장합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== 비교 ===== -->
+    <section class="py-16 bg-studio-800">
+        <div class="max-w-4xl mx-auto px-4 reveal">
+            <h2 class="text-2xl md:text-3xl font-display font-bold text-white text-center mb-3">
+                집 녹음 vs <span class="text-gold-400">TAKE VOCAL</span>
+            </h2>
+            <p class="text-center text-gray-500 text-sm mb-10">같은 목소리인데, AI가 만드는 결과는 완전히 다릅니다.</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-gray-700">
+                            <th class="text-left py-4 px-4 text-gray-400 font-medium">항목</th>
+                            <th class="text-center py-4 px-4 text-gray-400 font-medium">집에서 녹음</th>
+                            <th class="text-center py-4 px-4 text-gold-400 font-bold">TAKE VOCAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700/50">
+                            <td class="py-4 px-4 text-gray-300">마이크</td>
+                            <td class="py-4 px-4 text-center text-gray-400">USB/스마트폰</td>
+                            <td class="py-4 px-4 text-center text-gold-300 font-semibold">Neumann TLM 103</td>
+                        </tr>
+                        <tr class="border-b border-gray-700/50">
+                            <td class="py-4 px-4 text-gray-300">노이즈</td>
+                            <td class="py-4 px-4 text-center text-gray-400">에어컨/키보드/외부소음</td>
+                            <td class="py-4 px-4 text-center text-gold-300 font-semibold">전문 방음 부스</td>
+                        </tr>
+                        <tr class="border-b border-gray-700/50">
+                            <td class="py-4 px-4 text-gray-300">포맷</td>
+                            <td class="py-4 px-4 text-center text-gray-400">MP3/16bit</td>
+                            <td class="py-4 px-4 text-center text-gold-300 font-semibold">24bit / 48kHz WAV</td>
+                        </tr>
+                        <tr class="border-b border-gray-700/50">
+                            <td class="py-4 px-4 text-gray-300">후처리</td>
+                            <td class="py-4 px-4 text-center text-gray-400">직접 (모르면 패스)</td>
+                            <td class="py-4 px-4 text-center text-gold-300 font-semibold">숨소리/공백 정밀 편집</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 text-gray-300">AI 모델 결과</td>
+                            <td class="py-4 px-4 text-center text-gray-400">노이즈 섞인 어색한 음색</td>
+                            <td class="py-4 px-4 text-center text-gold-300 font-semibold">깨끗하고 자연스러운 클론</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 이런 분들 ===== -->
+    <section class="py-20 bg-studio-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <p class="text-gold-400 font-display text-sm tracking-[0.2em] uppercase mb-3">For You</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                    이런 분들을 위한 서비스입니다
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 reveal">
+                <div class="bg-studio-800 rounded-2xl p-6 border border-gray-800/50 flex gap-4">
+                    <span class="text-3xl shrink-0">🎵</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">AI 커버 채널 운영자</h3>
+                        <p class="text-gray-400 text-sm">지속적으로 퀄리티 높은 콘텐츠를 만들고 싶은 분</p>
+                    </div>
+                </div>
+                <div class="bg-studio-800 rounded-2xl p-6 border border-gray-800/50 flex gap-4">
+                    <span class="text-3xl shrink-0">🎙</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">목소리 브랜딩이 필요한 크리에이터</h3>
+                        <p class="text-gray-400 text-sm">내 목소리를 디지털 자산으로 만들고 싶은 분</p>
+                    </div>
+                </div>
+                <div class="bg-studio-800 rounded-2xl p-6 border border-gray-800/50 flex gap-4">
+                    <span class="text-3xl shrink-0">📱</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">유튜버 / 틱톡 크리에이터</h3>
+                        <p class="text-gray-400 text-sm">효율적인 콘텐츠 자동화를 준비하는 분</p>
+                    </div>
+                </div>
+                <div class="bg-studio-800 rounded-2xl p-6 border border-gray-800/50 flex gap-4">
+                    <span class="text-3xl shrink-0">💎</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">차별화된 퀄리티를 원하는 전문가</h3>
+                        <p class="text-gray-400 text-sm">집 녹음의 한계를 넘고 싶은 분</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 reveal">
+                <p class="text-gray-500 text-sm">취미나 테스트용이라면 집에서 녹음하셔도 충분합니다.<br>본격적인 활용을 고려하는 분들과 작업합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== 세션 과정 ===== -->
+    <section class="py-20 bg-studio-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <p class="text-gold-400 font-display text-sm tracking-[0.2em] uppercase mb-3">Session Flow</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                    60분 집중 세션
+                </h2>
+            </div>
+
+            <div class="space-y-6 reveal">
+                <div class="flex gap-6 items-start">
+                    <div class="w-12 h-12 bg-gold-500 text-white shrink-0 rounded-full flex items-center justify-center font-bold text-lg">1</div>
+                    <div class="bg-studio-800 rounded-2xl p-6 flex-1 border border-gray-800/50">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-lg font-bold text-white">장비 세팅 & 톤 체크</h3>
+                            <span class="text-gold-400 text-xs bg-gold-500/10 px-2 py-0.5 rounded">5분</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">목소리에 맞는 마이크 포지션, 게인 레벨, 프리앰프 세팅을 조정합니다.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start">
+                    <div class="w-12 h-12 bg-gold-500 text-white shrink-0 rounded-full flex items-center justify-center font-bold text-lg">2</div>
+                    <div class="bg-studio-800 rounded-2xl p-6 flex-1 border border-gray-800/50">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-lg font-bold text-white">전문 녹음 세션</h3>
+                            <span class="text-gold-400 text-xs bg-gold-500/10 px-2 py-0.5 rounded">35분</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">다양한 음역, 톤, 감정으로 녹음합니다. AI 학습에 최적화된 발음/호흡 코칭도 포함됩니다.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start">
+                    <div class="w-12 h-12 bg-gold-500 text-white shrink-0 rounded-full flex items-center justify-center font-bold text-lg">3</div>
+                    <div class="bg-studio-800 rounded-2xl p-6 flex-1 border border-gray-800/50">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-lg font-bold text-white">AI 최적화 편집</h3>
+                            <span class="text-gold-400 text-xs bg-gold-500/10 px-2 py-0.5 rounded">20분</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">숨소리/공백 정밀 제거, Peak -6dB 레벨 정규화, AI 학습 최적 포맷으로 변환합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 결과물 -->
+            <div class="mt-12 reveal">
+                <div class="bg-studio-800 border border-gold-500/20 rounded-2xl p-6 md:p-8">
+                    <h3 class="text-lg font-bold text-white mb-4">제공 결과물</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300 text-sm">24bit / 48kHz WAV</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300 text-sm">Peak -6dB 레벨링</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300 text-sm">클린 편집 완료</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-4">ElevenLabs, Kits.AI, RVC, 소리소리AI 등 모든 AI 플랫폼에 즉시 사용 가능</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== 가격 ===== -->
+    <section id="pricing" class="py-20 md:py-28 bg-studio-900">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="reveal">
+                <p class="text-gold-400 font-display text-sm tracking-[0.2em] uppercase mb-3">Pricing</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-10">
+                    서비스 가격
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto reveal">
+                <!-- 기본 세션 -->
+                <div class="bg-studio-800 rounded-3xl p-8 border border-gray-800/50 relative">
+                    <p class="text-gray-400 text-sm mb-2">기본 세션</p>
+                    <p class="text-4xl font-display font-bold text-white mb-1">89,000<span class="text-xl">원</span></p>
+                    <p class="text-gray-500 text-xs mb-6">60분 (녹음 40분 + 편집 20분)</p>
+                    <ul class="space-y-2.5 text-sm text-gray-300 text-left mb-6">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            전문 장비 체인 사용
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            AI 최적화 편집
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            24bit/48kHz WAV 납품
+                        </li>
+                    </ul>
+                    <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener"
+                       class="block w-full bg-studio-700 hover:bg-studio-600 text-white py-3 rounded-xl font-semibold transition-all">
+                        상담하기
+                    </a>
+                </div>
+
+                <!-- 프리미엄 세션 -->
+                <div class="bg-studio-800 rounded-3xl p-8 border-2 border-gold-500/40 glow-border relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">추천</div>
+                    <p class="text-gray-400 text-sm mb-2">프리미엄 세션</p>
+                    <p class="text-4xl font-display font-bold text-white mb-1">149,000<span class="text-xl">원</span></p>
+                    <p class="text-gray-500 text-xs mb-6">90분 (녹음 60분 + 심화 편집 30분)</p>
+                    <ul class="space-y-2.5 text-sm text-gray-300 text-left mb-6">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            기본 세션 전체 포함
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            녹음 시간 60분으로 확장
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            리비전 1회 포함
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            AI 플랫폼 업로드 가이드
+                        </li>
+                    </ul>
+                    <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener"
+                       class="block w-full bg-gold-500 hover:bg-gold-600 text-white py-3 rounded-xl font-bold transition-all hover:scale-[1.02]">
+                        상담하기
+                    </a>
+                </div>
+            </div>
+
+            <!-- 보컬 레슨 수강생 특가 -->
+            <div class="reveal mt-8">
+                <div class="bg-gradient-to-r from-studio-800 to-studio-900 border border-gold-500/20 rounded-2xl p-6 max-w-md mx-auto">
+                    <p class="text-gold-400 text-xs font-semibold mb-2">TAKE VOCAL 수강생 특별가</p>
+                    <p class="text-2xl font-display font-bold text-white">69,000<span class="text-base">원</span></p>
+                    <p class="text-gray-500 text-xs mt-1">보컬 레슨 수강생은 AI 보이스 제작을 특별가로 이용하실 수 있습니다.</p>
+                </div>
+            </div>
+
+            <!-- 서비스 범위 안내 -->
+            <div class="reveal mt-10 max-w-2xl mx-auto text-left">
+                <div class="bg-studio-800 rounded-2xl p-6 border border-gray-800/50">
+                    <h3 class="text-sm font-bold text-white mb-3">서비스 범위 안내</h3>
+                    <div class="space-y-2 text-xs text-gray-400">
+                        <p><strong class="text-gray-300">우리가 제공하는 것:</strong> AI 모델 학습에 사용할 수 있는 최고 품질의 원본 WAV 파일</p>
+                        <p><strong class="text-gray-300">고객님이 하시는 것:</strong> 제공된 파일을 ElevenLabs, Kits.AI 등 원하시는 AI 플랫폼에 업로드하여 최종 결과물 제작</p>
+                        <p class="text-gray-500 pt-2 border-t border-gray-800">최종 AI 결과물은 플랫폼 특성, 파라미터 설정 등 여러 요인의 영향을 받습니다. 우리는 그 출발점이 되는 '완벽한 원본'을 보장합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider max-w-6xl mx-auto"></div>
+
+    <!-- ===== CTA ===== -->
+    <section class="py-20 bg-studio-900">
+        <div class="max-w-3xl mx-auto px-4 text-center reveal">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+                AI 보이스, <span class="text-gold-400">원본부터 제대로</span>
+            </h2>
+            <p class="text-gray-400 mb-10 leading-relaxed">
+                카카오톡으로 "AI 보이스 상담" 보내주시면<br>상세 안내 즉시 드립니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener"
+                   class="glow-border bg-gold-500 hover:bg-gold-600 text-white px-8 py-4 rounded-full text-lg font-bold transition-all hover:scale-105 inline-flex items-center gap-2 justify-center">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.83 1.88 5.32 4.72 6.73-.16.57-.58 2.07-.66 2.39-.11.4.15.39.31.28.13-.08 2.04-1.38 2.87-1.94.89.13 1.82.2 2.76.2 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg>
+                    카카오톡 상담하기
+                </a>
+                <a href="tel:010-2340-3794" class="border border-gray-600 hover:border-gold-500 text-gray-300 hover:text-white px-8 py-4 rounded-full text-lg font-medium transition-all inline-flex items-center gap-2 justify-center">
+                    010-2340-3794
+                </a>
+            </div>
+            <p class="text-gray-500 text-xs mt-4">카카오톡 ID: banye</p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-10 bg-studio-800 border-t border-gray-800/30">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <span class="font-display font-bold text-xl text-white tracking-tight">TAKE<span class="text-gold-500"> </span>VOCAL</span>
+                    <p class="text-gray-500 text-xs mt-1">서울특별시 성동구 금호동</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="text-gray-500 hover:text-gold-400 transition-colors text-sm">보컬 레슨</a>
+                    <a href="https://blog.naver.com/luventh" target="_blank" rel="noopener" class="text-gray-500 hover:text-gold-400 transition-colors text-sm">네이버 블로그</a>
+                    <a href="https://open.kakao.com/o/sExample" target="_blank" rel="noopener" class="text-gray-500 hover:text-gold-400 transition-colors text-sm">카카오톡 상담</a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-800/30 text-center">
+                <p class="text-gray-600 text-xs">&copy; 2026 TAKE VOCAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header-scrolled', window.scrollY > 50);
+        });
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => observer.observe(el));
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const closeMobileMenu = () => mobileMenu.classList.add('hidden');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        document.querySelectorAll('.mobile-nav-link').forEach(link => { link.addEventListener('click', closeMobileMenu); });
+    </script>
+</body>
+</html>
