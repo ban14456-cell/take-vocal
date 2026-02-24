@@ -139,6 +139,9 @@
     }
     </script>
 
+    <!-- PortOne V2 SDK -->
+    <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+
     <style>
         html { scroll-behavior: smooth; }
         body { background-color: #0a0a0f; }
@@ -811,11 +814,14 @@
                         </li>
                     </ul>
 
+                    <button onclick="openPaymentModal('trial_lesson', '체험 레슨 (1회)', 50000)"
+                       class="block w-full bg-gold-500 hover:bg-gold-600 text-white py-4 rounded-xl text-lg font-bold transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                        50,000원 결제하기
+                    </button>
                     <a href="https://open.kakao.com/o/s1uhH2gi" target="_blank" rel="noopener"
-                       class="block w-full bg-gold-500 hover:bg-gold-600 text-white py-4 rounded-xl text-lg font-bold transition-all hover:scale-[1.02] active:scale-[0.98]">
-                        카카오톡으로 신청하기
+                       class="block text-gray-400 hover:text-gold-400 text-xs mt-3 transition-colors">
+                        카카오톡 상담 문의 →
                     </a>
-                    <p class="text-gray-500 text-xs mt-3">카카오톡 ID: <strong class="text-gray-400">banye</strong></p>
                 </div>
             </div>
 
@@ -827,6 +833,14 @@
                     <p class="text-3xl font-display font-bold text-white mb-2">월 <span class="text-gold-400">250,000</span>원</p>
                     <p class="text-gray-500 text-xs">월 4회 &middot; 정가 28만원 → 특가 25만원 &middot; 매 수업 녹음 + MP3 포함</p>
                     <p class="text-gray-600 text-[11px] mt-2">녹음만 해도 5~10만원인데, 레슨+녹음+MP3 전부 포함</p>
+                    <button onclick="openPaymentModal('regular_lesson', '정규 레슨 (월 4회)', 250000)"
+                       class="block w-full mt-4 bg-gold-500 hover:bg-gold-600 text-white py-3 rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                        250,000원 결제하기
+                    </button>
+                    <a href="https://open.kakao.com/o/s1uhH2gi" target="_blank" rel="noopener"
+                       class="block text-gray-400 hover:text-gold-400 text-xs mt-2 transition-colors">
+                        카카오톡 상담 문의 →
+                    </a>
                 </div>
             </div>
         </div>
@@ -878,7 +892,7 @@
                 <div class="bg-studio-800 rounded-2xl p-6 border border-gray-800/50">
                     <div class="flex items-center gap-1 mb-3"><span class="text-gold-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
                     <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                        "프라이빗해서 눈치 안 보고 편하게 배울 수 있어요. 방음도 완벽하고, 선생님이 뮤지컬 현역이라 표현력 지도가 남달라요. 강추합니다."
+                        "프라이빗해서 눈치 안 보고 편하게 배울 수 있어요. 방음도 완벽하고, 선생님이 뮤지컬 프로 출신이라 표현력 지도가 남달라요. 강추합니다."
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 bg-gold-500/20 rounded-full flex items-center justify-center text-gold-400 text-xs font-bold">최</div>
@@ -909,7 +923,7 @@
                     <div class="flex items-end gap-2 justify-end">
                         <div class="text-right">
                             <div class="bg-[#FEE500] rounded-2xl rounded-br-sm px-4 py-2.5 text-sm text-gray-800 max-w-[280px] shadow-sm">
-                                맞아요 희님 목소리ㅎㅎ 처음 오셨을 때랑 비교하면 진짜 많이 달라졌죠. 앞으로 더 기대하셔도 돼요!
+                                맞아요 목소리ㅎㅎ 처음 오셨을 때랑 비교하면 진짜 많이 달라졌죠. 앞으로 더 기대하셔도 돼요!
                             </div>
                             <p class="text-gray-500 text-[10px] mt-0.5 mr-1 text-right">오후 3:45</p>
                         </div>
@@ -931,7 +945,7 @@
                     <div class="flex items-end gap-2 justify-end">
                         <div class="text-right">
                             <div class="bg-[#FEE500] rounded-2xl rounded-br-sm px-4 py-2.5 text-sm text-gray-800 max-w-[280px] shadow-sm">
-                                와 진짜요?! 축하해요 혁이!! 제가 더 감사하죠. 이런 소식 전해줘서 너무 기쁘다 ㅠㅠ
+                                와 진짜요?! 축하해요!! 제가 더 감사하죠. 이런 소식 전해줘서 너무 기쁘다 ㅠㅠ
                             </div>
                             <p class="text-gray-500 text-[10px] mt-0.5 mr-1 text-right">오후 6:05</p>
                         </div>
@@ -953,7 +967,7 @@
                     <div class="flex items-end gap-2 justify-end">
                         <div class="text-right">
                             <div class="bg-[#FEE500] rounded-2xl rounded-br-sm px-4 py-2.5 text-sm text-gray-800 max-w-[280px] shadow-sm">
-                                2등이면 거의 우승인데요ㅋㅋ 진짜 잘하셨어요! 다음엔 1등 노려봅시다 💪
+                                2등이면 거의 우승인데요ㅋㅋ 진짜 잘하셨어요! 다음엔 1등 노려봅시다💪
                             </div>
                             <p class="text-gray-500 text-[10px] mt-0.5 mr-1 text-right">오후 7:30</p>
                         </div>
@@ -975,7 +989,7 @@
                     <div class="flex items-end gap-2 justify-end">
                         <div class="text-right">
                             <div class="bg-[#FEE500] rounded-2xl rounded-br-sm px-4 py-2.5 text-sm text-gray-800 max-w-[280px] shadow-sm">
-                                호님 귀가 열린거예요ㅎㅎ 본인이 차이를 느끼기 시작하면 그때부터 진짜 빨리 늘어요. 앞으로 더더욱 발전했으면 좋겠다!
+                                귀가 열린 거예요ㅎㅎ 본인이 차이를 느끼기 시작하면 그때부터 진짜 빨리 늘어요. 앞으로 더더욱 발전했으면 좋겠다!
                             </div>
                             <p class="text-gray-500 text-[10px] mt-0.5 mr-1 text-right">오후 4:22</p>
                         </div>
@@ -1277,6 +1291,59 @@
         </a>
     </div>
 
+    <!-- ===== 결제 모달 ===== -->
+    <div id="paymentModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closePaymentModal()"></div>
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="bg-studio-800 rounded-2xl p-6 md:p-8 w-full max-w-md border border-gold-500/30 relative">
+                <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+
+                <!-- 결제 폼 -->
+                <div id="paymentForm">
+                    <h3 class="text-xl font-display font-bold text-white mb-1" id="modalProductName"></h3>
+                    <p class="text-gold-400 text-2xl font-display font-bold mb-6" id="modalAmount"></p>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">이름 <span class="text-red-400">*</span></label>
+                            <input type="text" id="payName" placeholder="홍길동"
+                                class="w-full bg-studio-700 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">연락처 <span class="text-red-400">*</span></label>
+                            <input type="tel" id="payPhone" placeholder="010-1234-5678"
+                                class="w-full bg-studio-700 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">이메일 <span class="text-gray-600">(선택)</span></label>
+                            <input type="email" id="payEmail" placeholder="email@example.com"
+                                class="w-full bg-studio-700 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold-500 focus:outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <button id="payBtn" onclick="startPayment()"
+                        class="w-full mt-6 bg-gold-500 hover:bg-gold-600 text-white py-4 rounded-xl text-lg font-bold transition-all hover:scale-[1.02] active:scale-[0.98]">
+                        결제하기
+                    </button>
+                    <p class="text-gray-600 text-[11px] mt-3 text-center">결제는 포트원(PortOne)을 통해 안전하게 처리됩니다.</p>
+                </div>
+
+                <!-- 결제 완료 -->
+                <div id="paymentSuccess" class="hidden text-center py-4">
+                    <div class="text-5xl mb-4">&#10003;</div>
+                    <h3 class="text-xl font-display font-bold text-white mb-2">결제 완료!</h3>
+                    <p class="text-gray-400 mb-6">확인 후 빠르게 연락드리겠습니다.</p>
+                    <button onclick="closePaymentModal()"
+                        class="bg-studio-700 hover:bg-studio-600 text-white px-8 py-3 rounded-xl font-semibold transition-all">
+                        닫기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== SCRIPTS ===== -->
     <script>
         // Sticky header
@@ -1320,6 +1387,108 @@
                 }
             });
         });
+
+        // ===== 결제 시스템 =====
+        const API_BASE = 'https://promr.kr/api';
+        let currentProduct = {};
+
+        function openPaymentModal(productType, productName, amount) {
+            currentProduct = { productType, productName, amount };
+            document.getElementById('modalProductName').textContent = productName;
+            document.getElementById('modalAmount').textContent = amount.toLocaleString() + '원';
+            document.getElementById('paymentForm').classList.remove('hidden');
+            document.getElementById('paymentSuccess').classList.add('hidden');
+            document.getElementById('payName').value = '';
+            document.getElementById('payPhone').value = '';
+            document.getElementById('payEmail').value = '';
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        async function startPayment() {
+            const name = document.getElementById('payName').value.trim();
+            const phone = document.getElementById('payPhone').value.trim();
+            const email = document.getElementById('payEmail').value.trim();
+
+            if (!name) { alert('이름을 입력해주세요.'); return; }
+            if (!phone) { alert('연락처를 입력해주세요.'); return; }
+
+            const btn = document.getElementById('payBtn');
+            btn.disabled = true;
+            btn.textContent = '처리 중...';
+
+            try {
+                // 1. 주문 생성
+                const orderRes = await fetch(`${API_BASE}/vocal/order`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        email: email || null,
+                        product_type: currentProduct.productType,
+                    }),
+                });
+
+                if (!orderRes.ok) {
+                    const err = await orderRes.json();
+                    throw new Error(err.detail || '주문 생성 실패');
+                }
+
+                const order = await orderRes.json();
+
+                // 2. PortOne 결제 팝업
+                const payRes = await PortOne.requestPayment({
+                    storeId: order.store_id,
+                    channelKey: order.channel_key,
+                    paymentId: order.order_id,
+                    orderName: order.product_name,
+                    totalAmount: order.amount,
+                    currency: 'CURRENCY_KRW',
+                    payMethod: 'CARD',
+                    customer: {
+                        fullName: name,
+                        phoneNumber: phone.replace(/-/g, ''),
+                        email: email || undefined,
+                    },
+                });
+
+                if (payRes.code) {
+                    // 사용자 취소 또는 에러
+                    if (payRes.code === 'FAILURE_TYPE_PG' || payRes.message?.includes('cancel')) {
+                        throw new Error('결제가 취소되었습니다.');
+                    }
+                    throw new Error(payRes.message || '결제 실패');
+                }
+
+                // 3. 결제 검증
+                const confirmRes = await fetch(`${API_BASE}/vocal/confirm`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ paymentId: order.order_id }),
+                });
+
+                if (!confirmRes.ok) {
+                    const err = await confirmRes.json();
+                    throw new Error(err.detail || '결제 검증 실패');
+                }
+
+                // 4. 성공
+                document.getElementById('paymentForm').classList.add('hidden');
+                document.getElementById('paymentSuccess').classList.remove('hidden');
+
+            } catch (e) {
+                alert(e.message || '결제 처리 중 오류가 발생했습니다.');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '결제하기';
+            }
+        }
     </script>
 
 </body>
